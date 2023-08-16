@@ -1,0 +1,86 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--THIRD PARTY-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--CSS-->
+    <link rel="stylesheet" href="{% static 'css/color.css' %}">
+    <link rel="stylesheet" href="{% static 'css/menu.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    <title>Home</title>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div class="Container">
+        <center>
+            <header>
+                <section class="banner">
+                    <div class="background"></div>
+                    <div class="space"></div>
+                    <section>
+                        <img src="{% static 'img/pfp.png' %}">
+                        <h1>{{user.username}}</h1>
+                    </section>
+                </section>
+            </header>
+            <main>
+                <section class="products">
+                    <h2>Products</h2>
+                    <div class="product-search Flex">
+                        <div class="search-icon bi bi-search Center"></div>
+                        <input type="text" id="searchinp" placeholder="Search...">
+                    </div>
+                    <div class="cards Flex">
+                        <a href="{% url 'post' %}" style="color: var(--mainColor); font-size: 5rem;" id="help" class="product Center Border">
+                            <i class="bi bi-plus"></i>
+                        </a>
+                        {% for product in products %}
+                            <div class="product Border">
+                                <div onclick="window.open(`${window.location.origin}{% url 'product' postID=product.id %}`)" class="img-wrap">
+                                    <img src="{{ product.image.url }}">
+                                </div>
+                                <div class="info-wrap">
+                                    <span class="title">{{product.title}}<b></b></span>
+                                    <b>£3.99</b>
+                                    {% if request.user.id == product.user.id %}
+                                    <div class="edit-post">
+                                        <a href="{% url 'edit' postID=product.id %}" class="btn edit Center">
+                                            <i class="bi bi-pencil-fill"></i>
+                                        </a>
+                                        <a href="{% url 'delete' postID=product.id %}" id="delete" class="btn delete Center">
+                                            <i class="bi bi-trash-fill"></i>
+                                        </a>                                    
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </section>
+            </main>
+        </center>
+    </div>
+    <!--JS-->
+    <script>
+        const search = document.getElementById('searchinp');
+        const products = document.querySelectorAll('.product');
+        search.onkeyup = () => {
+            products.forEach((product) => {
+                if (product.id === 'help') return;
+                const title = product.querySelector('.title');
+                if (title.innerHTML.toLowerCase().replaceAll(' ', '').includes(search.value.toLowerCase().replaceAll(' ', ''))) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        };
+    </script>
+    <script src="{% static 'js/navbar.js' %}"></script>
+    <script src="{% static 'js/menu.js' %}"></script>
+</body>
+</html>

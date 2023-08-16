@@ -1,0 +1,210 @@
+.NavContainer {
+    position: relative;
+    z-index: 100;
+    width: 100%;
+    height: 50px;
+}
+
+.NavBar {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--navColor);
+    box-shadow: 0 10px 10px rgba(0,0,0,.1);
+    width: 100%;
+    height: 50px;
+}
+
+nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    max-width: 1500px;
+}
+
+.NavElement {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--navText);
+    cursor: pointer;
+    background-color: var(--navColor);
+    transition: 200ms ease-in-out;
+}
+
+.NavElement:hover {
+    background-color: var(--navHover);
+}
+
+.Search {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    outline: none;
+    border: 0;
+    color: rgb(100, 100, 100);
+    min-width: 180px;
+    width: 30%;
+    padding: 0 20px;
+    height: 27px;
+    border-radius: 20px;
+    transition: 200ms ease-in-out;
+}
+
+.Search:focus {
+    color: var(--mainColor);
+}
+
+/*
+
+
+Categories
+
+
+*/
+
+.CategoriesContainer {
+    position: relative;
+    width: 100vw;
+    height: 60px;
+}
+
+.Categories {
+    position: fixed;
+    z-index: 100;
+    background-color: white;
+    width: 100vw;
+    height: 60px;
+    box-shadow: 0 10px 10px rgba(0,0,0,.1);
+}
+
+.Categories section {
+    list-style-type: none;
+    width: 100%;
+    max-width: 1500px;
+    height: 60px;
+}
+
+.Categories a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--mainColor);
+    width: auto;
+    padding: 0 20px;
+    height: 100%;
+    cursor: pointer;
+    transition: 200ms ease-in-out;
+}
+
+.Categories a:hover {
+    background-color: var(--mainColor);
+    color: #fff;
+}
+
+@media (max-width: 550px) {
+    .CategoriesContainer {
+        display: none;
+    }
+}
+
+/*
+
+
+Menu
+
+
+*/
+
+.MenuContainer {
+    position: fixed;
+    z-index: 101;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+}
+
+.MenuOverlay {
+    opacity: 0;
+    background-color: rgba(0,0,0,.5);
+    width: 100vw;
+    height: 100vh;
+    transition: 500ms ease-in-out;
+}
+
+.Menu {
+    position: absolute;
+    top: 0;
+    left: -500px;
+    height: 100vh;
+    width: 300px;
+    max-width: 75%;
+    background-color: #fff;
+    z-index: 102;
+    pointer-events: all;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    transition: 500ms ease-in-out;
+}
+
+.Menu section{
+    width: 300px;
+}
+
+.MenuBtn {
+    color: var(--mainColor);
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: 300ms ease-in-out;
+}
+
+.MenuBtn:hover {
+    background-color: rgb(228, 228, 228);
+}
+
+.MenuBtn i {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px 0 15px;
+    font-size: 1.6rem;
+}
+
+.Category {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    transition: 200ms ease-in-out;
+}
+
+.CategoryBtn {
+    text-decoration: none;
+    background-color: var(--mainColor);
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 300ms ease-in-out;
+}
+
+.CategoryBtn a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.CategoryBtn:hover {
+    background-color: var(--thirdColor);
+}

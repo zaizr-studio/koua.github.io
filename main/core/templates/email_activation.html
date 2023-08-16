@@ -1,0 +1,13 @@
+Hello {{user.username}}
+
+You're receiving this email because you signed up at The Social Network
+
+Please follow this link to confirm your email
+
+
+http://{{link}}{% url 'activate' uidb64=uid token=token %}
+
+
+Thanks for using our site!
+
+The Social Network team

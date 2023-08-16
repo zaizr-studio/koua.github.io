@@ -1,0 +1,102 @@
+<div class="MenuContainer">
+    <div class="MenuOverlay" id="menuOverlay"></div>     
+    <div class="Menu" id="menu">
+        <section>
+            <a href="{% url 'home' %}" class="MenuBtn">
+                <i class="bi bi-house-door-fill"></i>
+                Home
+            </a>
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'profile' userID=request.user.id %}" class="MenuBtn">
+                    <i class="bi bi-person-fill"></i>
+                    {{request.user.username}}
+                </a>
+                <a href="{% url 'signout' %}" class="MenuBtn">
+                    <i class="bi bi-door-closed-fill"></i>
+                    Sign out
+                </a>
+                <a href="{% url 'post' %}" class="MenuBtn">
+                    <i class="bi bi-bag-plus-fill"></i>
+                    Add Product
+                </a>
+            {% else %}
+                <a href="{% url 'signin' %}" class="MenuBtn">
+                    <i class="bi bi-door-open-fill"></i>
+                    Sign in
+                </a>
+                <a href="{% url 'signup' %}" class="MenuBtn">
+                    <i style="padding: 0 17.5px;" class="bi bi-person-plus-fill"></i>
+                    Sign up
+                </a>
+            {% endif %}
+            <a href="{% url 'store' %}" class="MenuBtn">
+                <i class="bi bi-basket3-fill"></i>
+                Store
+            </a>
+            <a class="MenuBtn" id="slideBtn">
+                <i class="bi bi-bookmarks-fill"></i>
+                Categories
+            </a>
+            <div class="Category" id="slide">
+                <div class="CategoryBtn Center">
+                    <a href="/search?q=Electronics" id="category">
+                        Electronics
+                    </a>                
+                </div>
+                <div class="CategoryBtn Center">
+                    <a href="/search?q=Furnitures" id="category">
+                        Furnitures
+                    </a>                
+                </div>
+                <div class="CategoryBtn Center">
+                    <a href="/search?q=Houseware" id="category">
+                        Houseware
+                    </a>
+                </div>
+                <div class="CategoryBtn Center">
+                    <a href="/search?q=Toys" id="category">
+                        Toys
+                    </a>               
+                </div>
+                <div class="CategoryBtn Center">
+                    <a href="/search?q=Books" id="category">
+                        Books
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<div class="NavContainer">
+    <div class="NavBar">
+        <nav>
+            <div class="NavElement" id="menuBtn">
+                <i class="bi bi-list" style="font-size: 25px;"></i>
+            </div>
+            <input class="Search" type="text" id="search" placeholder="Search...">
+        </nav>
+    </div>
+</div>
+<div id="all">
+    <div class="CategoriesContainer">
+        <div class="Categories Center">
+            <section class="Center">
+                <a href="/search?q=Electronics" id="category">
+                    Electronics
+                </a>
+                <a href="/search?q=Furnitures" id="category">
+                    Furnitures
+                </a>
+                <a href="/search?q=Houseware" id="category">
+                    Houseware
+                </a>
+                <a href="/search?q=Toys" id="category">
+                    Toys
+                </a>
+                <a href="/search?q=Books" id="category">
+                    Books
+                </a>
+            </section>
+        </div>
+    </div>
+</div>

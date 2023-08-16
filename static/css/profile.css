@@ -1,0 +1,211 @@
+body {
+    background-color: var(--bg);
+}
+
+.banner {
+    position: relative;
+    width: 100%;
+    max-width: 1500px;
+    background-color: #fafafa;
+    padding-bottom: 20px;
+    box-shadow: 0 0.1rem 0.25rem rgba(0, 0, 0, 0.2);
+    border: .5px solid rgb(190, 190, 190);
+    border-radius: 5px;
+}
+
+.banner section{
+    text-align: left;
+    margin-left: 50px;
+}
+
+.banner .background {
+    position: absolute;
+    width: 100%;
+    height: 275px;
+    background-color: var(--mainColor);
+}
+
+.banner .space {
+    width: 100%;
+    height: 190px;
+}
+
+.banner img {
+    position: relative;
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 4px solid var(--mainColor);
+}
+
+.banner h1 {
+    text-align: center;
+    width: 175px;
+    font-size: 2rem;
+    color: var(--mainColor);
+}
+
+main {
+    position: relative;
+    width: 100%;
+    max-width: 1500px;
+    margin-top: 50px;
+    color: var(--mainColor);
+}
+
+.product-search {
+    margin: 0 0 10px 10px;
+    max-width: calc(100% - 20px);
+}
+
+.search-icon {
+    font-size: 1.2rem;
+    background-color: white;
+    max-height: 50px;
+    width: 50px;
+    border-radius: 10px 0 0 10px;
+    border: 2px solid rgb(204, 204, 204);
+    border-right: 0;
+}
+
+.product-search input {
+    text-align: left;
+    padding: 0 20px;
+    height: 50px;
+    width: 350px;
+    border-radius: 0 10px 10px 0;
+    outline: none;
+    font-size: 1.1rem;
+    border: 2px solid rgb(204, 204, 204);
+    transition: 200ms ease-in-out;
+}
+
+.products {
+    position: relative;
+    margin-bottom: 30px;
+    padding: 25px;
+    width: calc(100% - 50px);
+    background-color: #fafafa;
+    border: .5px solid rgb(190, 190, 190);
+    box-shadow: 0 0.1rem 0.25rem rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    text-align: left;
+}
+
+.products input:focus, .products input:hover {
+    border-color: var(--mainColor);
+}
+
+.products h2 {
+    font-size: 2rem;
+    text-align: left;
+    margin: 0 0 15px 10px;
+}
+
+.cards {
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.product {
+    text-align: center;
+    position: relative;
+    margin: 10px;
+    width: 23%;
+    max-height: 400px;
+    background-color: #f8f8f8;
+    word-wrap: break-word;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 200ms ease-in-out;
+}
+
+.product:hover {
+    box-shadow: 0 0.1rem 0.25rem rgba(0, 0, 0, 0.4);
+    border-color: rgba(222,226,230,1);
+}
+
+.product .img-wrap {
+    border-radius: 0.2rem 0.2rem 0 0;
+    height: 300px;
+    text-align: center;
+    display: block;
+    overflow: hidden;
+    position: relative;
+    background: white;
+}
+
+.img-wrap img {
+    height: 100%;
+    width: 100%;
+    display: inline-block;
+    object-fit: cover;
+}
+
+.product .info-wrap {
+    padding: 20px;
+}
+
+.info-wrap .title {
+    color: #6c757d;
+    margin-bottom: 3px;
+    max-height: 40px;
+    display: block;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+.edit-post {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.edit-post .btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    border: 2px solid rgba(204, 204, 204, .5);
+    border-top: none;
+    border-right: none;
+    cursor: pointer;
+    transition: 200ms ease-in-out;
+}
+
+.edit-post .btn:hover {
+    background-color: #ddd;
+}
+
+.edit {
+    background-color: white;
+    color: var(--mainColor);
+}
+
+.delete {
+    background-color: white;
+    color: red;
+}
+
+@media (max-width: 1500px) {
+    .product {
+        width: 31%;
+    }
+}
+
+@media (max-width: 1050px) {
+    .product {
+        width: 46%;
+    }
+}
+
+@media (max-width: 700px) {
+    .products {
+        width: 100%;
+        padding: 25px 0;
+    }
+
+    .product {
+        width: 100%;
+    }
+}

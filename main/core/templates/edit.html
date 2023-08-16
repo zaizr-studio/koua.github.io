@@ -1,0 +1,68 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--THIRD PARTY-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!--CSS-->
+    <link rel="stylesheet" href="{% static 'css/menu.css' %}">
+    <link rel="stylesheet" href="{% static 'css/post.css' %}">
+    <link rel="stylesheet" href="{% static 'css/color.css' %}">
+    <title>Post</title>
+</head>
+<body>
+    <div class="c Center">
+        <form method="POST" enctype="multipart/form-data" class="Center">
+            {% csrf_token %}
+            <div class="Fields">
+                <div class="Field">
+                    <label for="title">Title</label>
+                    <input type="text" name="title" id="title" value="{{product.title}}" required placeholder="Type here...">
+                </div>
+                <div class="Field">
+                    <label for="label">Label</label>
+                    <textarea type="number" name="label" id="label" required placeholder="Type here...">{{product.label}}</textarea>
+                </div>
+                <img src="{{product.image.url}}" id="imagePreview">
+                <div class="Field">
+                    <label for="image">Image</label>
+                    <input type="file" name="image" id="image" value="{{product.image}}" accept="image/png, image/jpeg" required class="form-control">
+                </div>
+                <div class="Field">
+                    <label for="category">Category</label>
+                    <select class="form-select" name="category" id="category" required>
+                        <option value="E">Electronics</option>
+                        <option value="F">Furnitures</option>
+                        <option value="H">Houseware</option>
+                        <option value="T">Toys</option>
+                        <option value="B">Books</option>
+                    </select>
+                </div>
+                <div class="Field">
+                    <label for="price">Price (in USD)</label>
+                    <input type="number" step=".01" name="price" id="price" value="{{product.price}}" required placeholder="Type here...">
+                </div>
+                <button type="submit">EDIT</button>
+                {% if error %}
+                <div class="alert alert-danger mt-2" role="alert">
+                    {{error}}
+                </div>
+                {% endif %}
+            </div>
+        </form>
+    </div>
+    <script>
+        const imgInp = document.getElementById('image');
+        const imagePreview = document.getElementById('imagePreview');
+        const confrimDelete = document.querySelector('.ConfrimDelete');
+        imgInp.onchange = () => {
+            const [file] = imgInp.files
+            if (file) {
+                imagePreview.src = URL.createObjectURL(file)
+            }
+        };
+    </script>
+</body>
+</html>
